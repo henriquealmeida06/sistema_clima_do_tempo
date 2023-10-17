@@ -149,6 +149,7 @@ button{
    color: white;
    border-radius: 5px;
    cursor: pointer;
+   padding: 0px 20px 0px 20px;
 }
 button:hover{
     background-color: rgba(18, 24, 34, 0.8);

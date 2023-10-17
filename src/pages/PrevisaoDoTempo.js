@@ -1,5 +1,6 @@
 import styles from './PrevisaoDoTempo.module.css'
 import {useState, useEffect} from 'react'
+import {FaSearch} from 'react-icons/fa'
 
 
 function PrevisaoDoTempo(){
@@ -41,6 +42,7 @@ function PrevisaoDoTempo(){
             setImgPrevisao(dados.weather[0].icon)
             setCountry(dados.sys.country)
             setDadosTeste(dados)
+            setInputCidade('')
             console.log(dadosTeste.main)
             
             
@@ -49,6 +51,8 @@ function PrevisaoDoTempo(){
             
         }catch(erro){
             console.error('Houve um erro na obtenção dos dados da previsão')
+            
+            
         }
         setCidade(inputCidade)
     }
@@ -59,7 +63,7 @@ function PrevisaoDoTempo(){
         <div className={styles.containerPrincipal}>
             <div className={styles.inputButton}>
             <input type="text" placeholder="Digite o nome da cidade" value={inputCidade} onChange={(e)=> setInputCidade(e.target.value)}/> 
-            <button onClick={buscarDados}>Buscar</button>
+            <button onClick={buscarDados}>{<FaSearch/>}</button>
             </div>
             <div className={styles.divDiaAtual}>
                 <p>{diaDaSemana}</p>
