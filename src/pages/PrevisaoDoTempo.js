@@ -1,6 +1,7 @@
 import styles from './PrevisaoDoTempo.module.css'
 import {useState, useEffect} from 'react'
 import {FaSearch} from 'react-icons/fa'
+import TelaDeErro from '../components/TelaDeErro'
 
 
 function PrevisaoDoTempo(){
@@ -28,6 +29,7 @@ function PrevisaoDoTempo(){
 
     
     const buscarDados = async ()=>{
+        
         try{
             const resposta = await fetch(
                 `https://api.openweathermap.org/data/2.5/weather?q=${inputCidade}&appid=${chaveApi}`
@@ -44,6 +46,8 @@ function PrevisaoDoTempo(){
             setDadosTeste(dados)
             setInputCidade('')
             console.log(dadosTeste.main)
+
+           
             
             
             
@@ -53,6 +57,8 @@ function PrevisaoDoTempo(){
             console.error('Houve um erro na obtenção dos dados da previsão')
             
             
+        
+            
         }
         setCidade(inputCidade)
     }
@@ -60,18 +66,18 @@ function PrevisaoDoTempo(){
     buscarDados()
 }, [])
     return(
-        <div className={styles.containerPrincipal}>
-            <div className={styles.inputButton}>
-            <input type="text" placeholder="Digite o nome da cidade" value={inputCidade} onChange={(e)=> setInputCidade(e.target.value)}/> 
-            <button onClick={buscarDados}>{<FaSearch/>}</button>
+        <div className="max-w-md font-roboto1" >
+            <div className="flex border-none mb-8 gap-1">
+            <input className='p-3 rounded-md flex-1 bg-cinzapadrao outline-none text-white border-none text-base opacity-80' type="text" placeholder="Digite o nome da cidade" value={inputCidade} onChange={(e)=> setInputCidade(e.target.value)}/> 
+            <button className='border-none bg-cinzapadrao opacity-80 text-white rounded-md pt-0 pb-0 pr-5 pl-5 text-sm' onClick={buscarDados}>{<FaSearch/>}</button>
             </div>
-            <div className={styles.divDiaAtual}>
-                <p>{diaDaSemana}</p>
+            <div className="flex justify-center items-center w-full mb-0.5 z-10 bg-cinzapadrao text-white text-xl font-semibold rounded-tl-md rounded-tr-md opacity-70 h-8 p-8">
+                <p className='text-white z-50'>{diaDaSemana}</p>
 
             </div>
-            <div className={styles.containerSecundario}>
+            <div className="w-px410 bg-cinzapadrao opacity-70 font-roboto1 text-white rounded-br-md rounded-bl-md">
                 
-                <div className={styles.divCidade}>
+                <div className="flex justify-evenly items-center p-1 h-12 mb-1 text-xl border-b-2 border-cinzaClaro">
                     <p>{cidade.toUpperCase()}</p>
                 {cidade ? (
                 <>
@@ -81,33 +87,33 @@ function PrevisaoDoTempo(){
                     null
                 )}
                 </div>
-                <div className={styles.divSimboloClima}>
-                    <div className={styles.divTemperatura}>
-                    <p className={styles.fontePadrao}>Temperatura atual</p>
-                    <p className={styles.fonteNumero}>{temperatura.toFixed(1)}°</p>
+                <div className="flex justify-center items-center mb-1 border-b-2 border-cinzaClaro p-0 h-36">
+                    <div className="flex flex-col">
+                    <p className="font-roboto1 text-xl">Temperatura atual</p>
+                    <p className="font-roboto1 text-5xl font-semibold">{temperatura.toFixed(1)}°</p>
                     </div>
-                    <img className={styles.img_sol} src={icone}/>
+                    <img className="w-44" src={icone}/>
                     
 
                 </div>
-                <div className={styles.divMaxMin}>
+                <div className="flex justify-evenly items-center h-28 m-0 mb-1 border-b-2 border-cinzaClaro font-roboto1">
                     <div>
-                    <p className={styles.fontePadrao}>mínima</p>
-                    <p className={styles.fonteNumero}>{tempMin.toFixed(1)}°</p>
+                    <p className="font-roboto1 text-xl m-0">mínima</p>
+                    <p className="font-roboto1 font-bold text-5xl m-0 tracking-wide">{tempMin.toFixed(1)}°</p>
                     </div>
                     <div>
-                    <p className={styles.fontePadrao}>máxima</p>
-                    <p className={styles.fonteNumero}>{tempMax.toFixed(1)}°</p>
+                    <p className="font-roboto1 text-xl m-0">máxima</p>
+                    <p className="font-roboto1 font-bold text-5xl m-0 tracking-wide">{tempMax.toFixed(1)}°</p>
                     </div>
 
                 </div>
-                <div className={styles.divUmidade}>
-                    <div className={styles.umidadeTexto}>
-                    <p className={styles.fontePadrao}>Umidade</p>
-                    <p className={styles.fontePadrao}>abaixo de</p>
+                <div className="flex justify-around items-center mb-1 h-28">
+                    <div className='flex flex-col'>
+                    <p className="font-roboto1 text-xl m-0">Umidade</p>
+                    <p className="font-roboto1 text-xl m-0">abaixo de</p>
 
                     </div>
-                    <p className={styles.fonteNumero}>{umidade}%</p>
+                    <p className="font-roboto1 font-bold text-5xl m-0 tracking-wide">{umidade}%</p>
 
                 </div>
             </div>

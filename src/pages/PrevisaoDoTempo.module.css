@@ -20,13 +20,13 @@ body{
 
     
 }
-.divDiaAtual{
+.divDiaAtuals{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 63vh;
     margin-bottom: 2px;
-    background-color: rgba(37, 51, 71, 0.7);
+    background-color: #253347b3;
     color: white;
     font-size: 20px;
     font-weight: 500;
@@ -35,11 +35,11 @@ body{
     
 
 }
-.containerSecundario{
+.containerSecundarios{
 
     min-width: 63vh;
     max-height: 70vh;
-    background: linear-gradient(45deg, hsla(217, 31%, 21%, 0.7) 100%,#7188ac 0%) ;
+    background: linear-gradient(45deg, hsla(217, 31%, 21%, 0.7) 100%,hsl(217, 26%, 56%) 0%) ;
     color: white;
     border-radius: 0px 0px 5px 5px;
 
@@ -55,7 +55,7 @@ body{
     font-size: 20px;
 
 }
-.divSimboloClima{
+.divSimboloClimas{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,7 +65,7 @@ body{
     padding: 0;
     
 }
-.divTemperatura{
+.divTemperaturas{
     display: flex;
     flex-direction: column;
 }
@@ -92,7 +92,7 @@ body{
 .img_sol{
     width: 180px;
 }
-.fontePadrao{
+.fontePadraos{
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     margin: 0;
@@ -126,7 +126,7 @@ body{
     width: 63vh;
     
 }
-input{
+inputs{
     
     padding: 15px;
     flex: 1;
@@ -142,7 +142,7 @@ input{
 input::placeholder{
     color: rgb(218, 212, 212);
 }
-button{
+buttons{
    border: none;
    margin-left: 3px;
    background-color: rgb(37, 51, 71, 0.8);
