@@ -8,7 +8,12 @@ module.exports = {
       },
       backgroundColor: {
         'cinzapadrao': 'rgb(37, 51, 71)',
+        'hoverButton': 'rgba(18, 24, 34)',
         
+        
+      },
+      screens: {
+        mc: '312px',
       },
       fontFamily:{
         roboto1: ['Roboto', 'sans-serif'],
@@ -21,6 +26,9 @@ module.exports = {
       },
       letterSpacing: {
         'wide': '2px',
+      },
+      colors:{
+        'cinzaPlaceholcer': 'rgb(218, 212, 212),'
       }
 
     },

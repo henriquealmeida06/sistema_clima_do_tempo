@@ -1,4 +1,3 @@
-import styles from './PrevisaoDoTempo.module.css'
 import {useState, useEffect} from 'react'
 import {FaSearch} from 'react-icons/fa'
 import TelaDeErro from '../components/TelaDeErro'
@@ -66,16 +65,16 @@ function PrevisaoDoTempo(){
     buscarDados()
 }, [])
     return(
-        <div className="max-w-md font-roboto1" >
+        <div className="max-w-md font-roboto1 mc:w-80" >
             <div className="flex border-none mb-8 gap-1">
-            <input className='p-3 rounded-md flex-1 bg-cinzapadrao outline-none text-white border-none text-base opacity-80' type="text" placeholder="Digite o nome da cidade" value={inputCidade} onChange={(e)=> setInputCidade(e.target.value)}/> 
-            <button className='border-none bg-cinzapadrao opacity-80 text-white rounded-md pt-0 pb-0 pr-5 pl-5 text-sm' onClick={buscarDados}>{<FaSearch/>}</button>
+            <input className='p-3 rounded-md placeholder:text-gray-100 placeholder:text-sm flex-1 bg-cinzapadrao outline-none text-white border-none text-base opacity-80' type="text" placeholder="Digite o nome da cidade" value={inputCidade} onChange={(e)=> setInputCidade(e.target.value)}/> 
+            <button className='border-none bg-cinzapadrao opacity-80 text-white rounded-md pt-0 pb-0 pr-5 pl-5 text-sm hover:bg-hoverButton' onClick={buscarDados}>{<FaSearch/>}</button>
             </div>
-            <div className="flex justify-center items-center w-full mb-0.5 z-10 bg-cinzapadrao text-white text-xl font-semibold rounded-tl-md rounded-tr-md opacity-70 h-8 p-8">
+            <div className="flex justify-center items-center w-full mb-0.5 z-0 bg-cinzapadrao text-white text-xl font-semibold rounded-tl-md rounded-tr-md opacity-70 h-8 p-8">
                 <p className='text-white z-50'>{diaDaSemana}</p>
 
             </div>
-            <div className="w-px410 bg-cinzapadrao opacity-70 font-roboto1 text-white rounded-br-md rounded-bl-md">
+            <div className="w-px410 mc:w-80 bg-cinzapadrao opacity-70 font-roboto1 text-white rounded-br-md rounded-bl-md">
                 
                 <div className="flex justify-evenly items-center p-1 h-12 mb-1 text-xl border-b-2 border-cinzaClaro">
                     <p>{cidade.toUpperCase()}</p>
